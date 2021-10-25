@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <title>ChangVang.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-family: Helvetica, sans-serif;
+            font-size: 16px;
+        }
+        body{
+            background:rgb(11, 47, 61);
+            margin: 0 auto;   
+        }
+        #menu{
+            height: 50px;
+            background:rgb(53, 145, 182);
+        }
+        #menu .me-nu>ul{
+            list-style-type: none;
+            height: 100%;
+            background: rgb(53, 145, 182);
+            width: 1000px;
+            float: left;
+            
+        }
+        #menu .me-nu>ul>li{
+            float: left;
+            line-height: 40px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color:white;
+            padding: 0 60px;
+            position: relative;
+        }
+        #menu .me-nu>ul>li:hover{
+            color: black;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        #menu .me-nu>ul>li>ul{
+            list-style-type:none ;
+            width: 298px;
+            background:rgb(53, 145, 182); ;
+            position: absolute;
+            left: 0;
+            padding: 8px 0;
+            z-index: 1;  
+            display: none;
+        }
+        #menu .me-nu>ul>li:hover>ul{
+            display: block;
+        }
+        #menu .me-nu>ul>li>ul>li{
+            text-transform: none;
+            font-weight: normal;
+            height: 40px;
+            background: rgb(53, 145, 182);
+            line-height: 40px;
+            padding: 0 10px;
+            color: white;
+            position: relative;
+        }
+        #menu .me-nu>ul>li>ul>li::before{
+            content: ">>";
+        }
+        #menu .me-nu>ul>li>ul>li:hover{
+            color: black;
+            background:rgb(43, 98, 119);
+            animation: slide 1s;
+            
+        }
+        #menu .me-nu>ul>li>ul>li:hover>a{
+            color: black;
+        }
+        #menu .me-nu>ul>li>ul>li>a{
+            color: white;
+            text-decoration: none;
+        }
+        @keyframes slide{
+            0%{left: 10px;}
+            20%{left: -8px;}
+            40%{left: 6px;}
+            60%{left: -4px;}
+            80%{left: 2px;}
+            100%{left: 0;}
+
+        }
+        #menu .search{
+            float: left;
+            width: 190px;
+            height: 40px;
+            margin-top: 4px;
+            background: rgb(211, 222, 230);
+            border-radius: 10px;
+        }
+        #menu .search input{
+            background: none;
+            margin-left: 8px;
+            margin-top: 10px;
+            font-weight: bold;
+            border: none;
+            width:79%;
+        }
+        #menu .search input:focus{
+            outline: none;
+        }
+        #menu .search span{
+            color: rgb(61, 60, 60);
+            font-size:1rem ;
+        }
+        #cover{
+            height: 200px;
+            width: 1305px;
+        }
+        #cover .cover1>img{
+            width: 653px;
+            height: 200px; 
+            float: left;   
+        }
+        #cover .cover2>img{
+            width: 652px;
+            height: 200px;
+            float: left;   
+        }
+        #newsfeed{
+            height: 36px;
+            width: 1305px;
+            background: rgb(62, 91, 107);
+        }
+        #newsfeed .gt{
+            height: 100%;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.80rem;
+            color: white;
+            background:rgb(44, 137, 153);
+            width: 100px;
+            line-height:36px ;
+            text-align: center;
+            float: left;
+        }
+        #newsfeed .arrow{
+            border-top: 18px solid transparent;
+            border-bottom: 18px solid transparent;
+            border-left: 18px solid rgb(44, 137, 153);
+            float: left;
+        }
+        #newsfeed .running-text{
+            width: 1187px;
+            height: 100%;
+            background:rgb(62, 91, 107); 
+            float: left; 
+            overflow: hidden;
+        }
+        #newsfeed .running-text ul{
+            list-style-type:">>";
+            width: 100%;
+            height: 100%;
+            animation: runningtext 50s infinite;
+            position: relative;
+            white-space: nowrap;
+            line-height: 36px;
+            float: left;   
+        }
+        #newsfeed .running-text>ul:hover{
+            animation-play-state: paused ;
+        }
+        #newsfeed .running-text>ul>li{
+            display:inline-block;
+            font-weight: bold;
+            margin-left: 15px;
+            color: black;
+        }
+        #newsfeed .running-text>ul>li::before{
+            content: ">>";
+            color: black;
+        }
+        @keyframes runningtext{
+            0%{left: 100%;}
+            100%{ left:-3000px;}
+          
+        }
+        #content{
+            height: 310px;
+            margin-top: 20px;
+        }
+        #content .left-content{
+            height: 100%;
+            width: 300px;
+            float: left;
+            margin-left: 200px;
+        }
+        #content .left-content img{
+            width: 100%;
+            height: 340px;
+        }
+        #content .right-content{
+            height: 100%;
+            width: 1000px;
+            margin-left: 320px;
+        }
+        #content .right-content table{
+            height: 340px;
+            width: 600px;
+            background: rgb(62, 91, 107);
+            margin-left: 250px;
+            
+            
+        }
+        #content .right-content table tr{
+            list-style-type: none;
+            
+        }
+        #content .right-content table tr th{
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(87, 11, 79);
+        }
+        #content .right-content table tr td{
+            white-space: nowrap;
+            color: black;
+            padding-left: 10px;    
+        }
+        #content .right-content table tr td input{
+            background:rgb(116, 17, 106);
+            margin-left: 480px;
+            height: 35px;
+            width: 90px;
+        }
+        #ads {
+            height: 160px;
+            width: 1310px;
+            margin-top: 50px;
+            padding-left: 210px;
+        }
+        #ads a{
+            display: block;
+            width: 162px;
+            height: 180px;
+            float: left;
+            text-align: center;
+            background: rgba(245, 236, 236, 30%);
+            margin-left: 20px; 
+            position: relative;
+        }
+        #ads a img{
+            height: 130px;
+            width: 100px;
+            padding-top: 5px;
+        
+        }
+        #ads a div{
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 5px;
+            color: black;
+        }
+        #ads a:hover div{
+            color: rgb(87, 11, 79);
+        }
+        #ads a:hover img{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            
+        }
+        #ads a:hover  {
+            animation: blurr 5s;
+            
+        }
+        @keyframes blurr{
+            0%{left: 10px;}
+            20%{left: -8px;}
+            40%{left: 6px;}
+            60%{left: -4px;}
+            80%{left: 2px;}
+            100%{left: 0;}
+        }
+        #footer{
+           
+            margin-top: 30px;
+        }
+        #footer ul{
+            background: rgba(44, 95, 60, 0.2);
+        }
+        #footer ul li{
+           margin-left: 20px;
+           list-style-type: none;
+        }
+      
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <div class="me-nu">
+        <ul>
+            <li>Trang chủ</li>
+            <li>Trọn bộ
+                <ul>
+                <li><a href="http://khophimhd.net/phim/chang-vang-6978/">The Twilight Saga 1</a></li>
+                <li><a href="http://khophimhd.net/phim/chang-vang-2-trang-non-6977/">The Twilight Saga 2: New Moon</a></li>
+                <li><a href="http://khophimhd.net/phim/chang-vang-3-nhat-thuc-6976/">The Twilight Saga 3: Eclipse</a></li>
+                <li><a href="http://khophimhd.net/phim/chang-vang-4-9577/">The Twilight Saga 4: Breaking Dawn 1</a></li>
+                <li><a href="http://khophimhd.net/phim/-9578/">The Twilight Saga 5: Breaking Dawn 2</a></li>
+                </ul>
+            </li>
+            <li>Diễn viên 
+                <ul>
+                    <li><a href="https://coccoc.com/search?query=Kristen+Stewart&ps=neoi_lcBtPFRLdJ0eH6piHUN5VU%3DpAjoIfNvM4o_2BvrNPqD-tgEa8g%3D&spos=6&kg_entity=vkgBWp4JyatDdwT72n3eZwGaR5Y%3D">Kristen Stewart</a></li>
+                    <li><a href="https://coccoc.com/search?query=Robert+Pattinson&ps=neoi_lcBtPFRLdJ0eH6piHUN5VU%3DpAjoIfNvM4o_2BvrNPqD-tgEa8g%3D&spos=4&kg_entity=ZQQ2ac5tAxHTvVr4o9m_IlSIeyo%3D">Robert Pattinson</a></li>
+                    <li><a href="https://coccoc.com/search?query=Taylor+Lautner&ps=neoi_lcBtPFRLdJ0eH6piHUN5VU%3DpAjoIfNvM4o_2BvrNPqD-tgEa8g%3D&spos=11&kg_entity=Duy9A3kEBAUvPs6E7tL6ra-Ejb4%3D">Taylor lautner</a></li>
+                    <li> Khác...</li> 
+                </ul>
+            </li>
+            <li>Tin tức</li>
+        </ul>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Tìm kiếm...">
+            <a><span class="glyphicon glyphicon-search"></span></a>
+        </div>
+    </div>
+    <div id="cover" >
+        <div class="cover1">
+        <img src="http://static.ybox.vn/2017/3/11/89a1135e-0647-11e7-91b5-56c566ee3692.jpg" alt="">
+        </div>
+        <div class="cover2">
+            <img src="https://lh3.googleusercontent.com/proxy/C23QkPeUgMGf1FokAFojqNe010cO4RV6sgHAL429We1J4Y0YHhu7TEwIFK6aS9ZUdO8eTQgVj-P_XIRD09mMLtexq-NFYXTtEsCgnW3y2iB0vhjMFaCjcEyLfZ30gRl64wMbQbJT22T97Ld7HXI" alt="">
+        </div>
+    </div>
+    <div id="newsfeed"> 
+        <div class="gt">Giới Thiệu</div>
+        <div class="arrow"></div>
+        <div class="running-text">
+            <ul>
+                <li>TWILIGHT (Chạng Vạng) là tên của một cuốn tiểu thuyết lãng mạn về ma cà rồng dành cho thanh thiếu niên của nhà văn Stephenie Meyer, trong đó giới thiệu nhân vật cô gái trẻ Isabella Swan 17 tuổi chuyển từ Phoenix, Arizona đến sống tại Forks, Washington, và đối mặt với những nguy hiểm trong cuộc sống khi cô phải lòng trước một ma cà rồng, Edward Cullen. Cuốn tiểu thuyết này được tiếp nối với các cuốn Trăng non, Nhật thực và Hừng Đông. </li>
+            </ul>
+        </div>
+    </div>
+    <div id="content"> 
+        <div class="left-content">
+            <img src="https://afamilycdn.com/Tnk9vRlUgEMOa9xiFyoQdi0bvg9Omj/Image/2012/06/twilightbreakingdawnpart2ewcover_7498c.jpg" alt="">
+        </div>
+        <div class="right-content">
+            <table border="1">
+                <tr>
+                    <th colspan="2">TWILIGHT: CHẠNG VẠNG</th>
+                </tr>
+                <tr>
+                    <td>Quốc Gia:</td>
+                    <td> Âu Mỹ</td>
+                </tr>
+                <tr>
+                    <td>Đạo Diễn:</td>
+                    <td> Bill Condon</td>
+                </tr>
+                <tr>
+                    <td>Diễn Viên:</td>
+                    <td>
+                        <li><a href="https://coccoc.com/search?query=Kristen+Stewart&ps=neoi_lcBtPFRLdJ0eH6piHUN5VU%3DpAjoIfNvM4o_2BvrNPqD-tgEa8g%3D&spos=6&kg_entity=vkgBWp4JyatDdwT72n3eZwGaR5Y%3D">Kristen Stewart</a></li>
+                        <li><a href="https://coccoc.com/search?query=Robert+Pattinson&ps=neoi_lcBtPFRLdJ0eH6piHUN5VU%3DpAjoIfNvM4o_2BvrNPqD-tgEa8g%3D&spos=4&kg_entity=ZQQ2ac5tAxHTvVr4o9m_IlSIeyo%3D">Robert Pattinson</a></li>
+                        <li><a href="https://coccoc.com/search?query=Taylor+Lautner&ps=neoi_lcBtPFRLdJ0eH6piHUN5VU%3DpAjoIfNvM4o_2BvrNPqD-tgEa8g%3D&spos=11&kg_entity=Duy9A3kEBAUvPs6E7tL6ra-Ejb4%3D">Taylor lautner</a></li>
+                        <li>và các diễn viên khác</li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Thể Loại:</td>
+                    <td> Tâm Lý, Tình Cảm, Hành Động</td>
+                </tr>
+                <tr>
+                    <td>Số Phần:
+                    <td>5 Phần</td>
+                </tr>
+                <tr>
+                    <td>Thời Lượng:</td>
+                    <td> 120phút/phần</td>
+                </tr>
+                <tr>
+                    <td>Năm xuất bản:</td>
+                    <td> 2008</td>
+                </tr>
+                <tr>
+                    <td>Lượt xem:</td>
+                    <td> 3.229.609</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="XEM PHIM"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="ads">
+        <a href="http://khophimhd.net/phim/chang-vang-6978/">
+            <img src="https://2.bp.blogspot.com/-AStZdv0olZc/Vof_fK20PPI/AAAAAAAAWZs/--FNNZf3Dr8/s0/chang-vang-twilight-2008.jpg" alt="">
+            <div>The Twilight Saga 1</div>
+           </a>
+           <a href="http://khophimhd.net/phim/chang-vang-2-trang-non-6977/">
+            <img src="https://2.bp.blogspot.com/-848T9CIHO6Q/Vof_gxComdI/AAAAAAAAWZ0/mc4MGYaIROo/s0/chang-vang-2-trang-non-the-twilight-saga-new-moon-2009.jpg" alt="">
+            <div> The Twilight Saga 2: New Moon</div>
+            </a>
+            <a href="http://khophimhd.net/phim/chang-vang-3-nhat-thuc-6976/">
+            <img src="https://2.bp.blogspot.com/-AbjyNQZ6wZk/Vof_ish5MMI/AAAAAAAAWZ8/uxI2XiuJIjg/s0/chang-vang-3-nhat-thuc-the-twilight-saga-eclipse-2010.jpg" alt="">
+            <div>The Twilight Saga 3: Eclipse</div>
+             </a>
+             <a href="http://khophimhd.net/phim/chang-vang-4-9577/">
+            <img src="http://mfilm.vn/data_files/film/201704/the-twilight-saga-breaking-dawn-part-1/image/the-twilight-saga-breaking-dawn-part-1-poster-vi.jpg?width=399&height=564" alt="">
+            <div>The Twilight Saga 4: Breaking Dawn 1 </div>
+             </a>
+             <a href="http://khophimhd.net/phim/-9578/">
+            <img src="http://mfilm.vn/data_files/film/201704/the-twilight-saga-breaking-dawn-part-2/image/the-twilight-saga-breaking-dawn-part-2-poster-vi.jpg?width=399&height=564" alt="">
+            <div>The Twilight Saga 5: Breaking Dawn 2 </div>
+        </a>
+
+    </div>
+    <div id="footer">
+        <ul>
+            <li><a href="">Từ khóa</a></li>
+            <li><a href="">Chạng vạng 5: Hừng Đông 2 2012 HD Phụ đề</a></li>
+            <li><a href="">Chạng vạng 5: Hừng Đông 2 2012 HD Thuyết minh</a></li>
+            <li><a href="">Chạng vạng 3: Nhật Thực 2010 HD Phụ đề</a></li>
+            <li><a href="">chạng vạng 2: Trăng Non 2009 HD Phụ đề</a></li>
+        </ul>
+    </div>
+</body>
+</html>
